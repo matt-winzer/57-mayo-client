@@ -20,6 +20,7 @@ class App extends Component {
   render() {
     const { setUser } = this
     const { user, apiUrl } = this.state
+    
     return (
       <div className="App">
         <Container>
