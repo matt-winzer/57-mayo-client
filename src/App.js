@@ -1,28 +1,36 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
+import './App.css'
+
+// Components
+import { Container } from 'semantic-ui-react'
+import Login from './components/Login'
+
+const apiUrl = 'http://localhost:3000/api'
 
 class App extends Component {
+  state = {
+    apiUrl: apiUrl,
+    user: ''
+  }
+
+  setUser = (user) => {
+    this.setState({ user })
+  }
+
   render() {
+    const { setUser } = this
+    const { user, apiUrl } = this.state
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <Container>
+          <Login  apiUrl={apiUrl}
+                  setUser={setUser}
+                  />
+        {user && <h1>{user.email}</h1> }
+        </Container>
       </div>
-    );
+    )
   }
 }
 
-export default App;
+export default App
