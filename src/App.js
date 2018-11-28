@@ -1,33 +1,53 @@
 import React, { Component } from 'react'
 import './App.css'
+import { fetchAuthorizedGet } from './lib/fetch'
 
 // Components
 import { Container } from 'semantic-ui-react'
 import Login from './components/Login'
+import Reviews from './components/Reviews'
 
 const apiUrl = 'http://localhost:3000/api'
 
 class App extends Component {
   state = {
     apiUrl: apiUrl,
-    user: ''
+    user: '',
+    reviews: []
   }
 
   setUser = (user) => {
     this.setState({ user })
+    this.getUserReviews(user.id)
+  }
+
+  getUserReviews = (id) => {
+    fetchAuthorizedGet(`${this.state.apiUrl}/users/${id}/reviews`, this.getToken())
+      .then(({ error, reviews }) => {
+        if (error) {
+          console.log(error)
+        }
+        else this.setState({ reviews })
+      })
+  }
+
+  getToken = () => {
+    return localStorage.getItem('token')
   }
 
   render() {
     const { setUser } = this
-    const { user, apiUrl } = this.state
-    
+    const { user, apiUrl, reviews } = this.state
+    const reviewsLoaded = reviews.length > 0
+
     return (
       <div className="App">
         <Container>
           <Login  apiUrl={apiUrl}
                   setUser={setUser}
                   />
-        {user && <h1>{user.email}</h1> }
+        {user && <h1>Logged in: {user.email}</h1>}
+        {reviewsLoaded && <Reviews reviews={reviews} />}
         </Container>
       </div>
     )

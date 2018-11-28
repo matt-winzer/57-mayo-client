@@ -1,3 +1,7 @@
+function fetchGet(url) {
+  return fetch(url).then(res => res.json())
+}
+
 function fetchPost(url, body) {
   return fetch(url, {
     method: 'POST',
@@ -9,6 +13,18 @@ function fetchPost(url, body) {
     .then(res => res.json())
 }
 
+function fetchAuthorizedGet(url, token) {
+  return fetch(url, {
+    method: 'GET',
+    headers: {
+      Authorization: `Bearer ${token}`
+    }
+  })
+  .then(res => res.json())
+}
+
 export {
-  fetchPost
+  fetchGet,
+  fetchPost,
+  fetchAuthorizedGet
 }
