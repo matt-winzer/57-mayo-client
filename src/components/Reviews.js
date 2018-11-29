@@ -14,7 +14,7 @@ const Reviews = ({ reviews }) => {
  
   return (
     <div>
-      <h1>Reviews:</h1>
+      <h2>Reviews:</h2>
       <div className='user-reviews'>
         { reviewComponents }
       </div>

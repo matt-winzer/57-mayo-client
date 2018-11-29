@@ -50,7 +50,9 @@ class App extends Component {
                     />
           </div>
         {user && <h1>Logged in: {user.email}</h1>}
-        {reviewsLoaded && <Reviews reviews={reviews} />}
+        {reviewsLoaded
+          ? <Reviews reviews={reviews} />
+          : <h2>Reviews: None Available</h2>}
         </Container>
       </div>
     )
