@@ -1,28 +1,54 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
+import './App.css'
+import { fetchAuthorizedGet } from './lib/fetch'
+import * as auth from './lib/authService'
+
+// Components
+import { Container } from 'semantic-ui-react'
+import Login from './components/Login'
+import Reviews from './components/Reviews'
+
+const apiUrl = 'http://localhost:3000/api'
 
 class App extends Component {
+  state = {
+    apiUrl: apiUrl,
+    user: '',
+    reviews: []
+  }
+
+  setUser = (user) => {
+    this.setState({ user })
+    this.getUserReviews(user.id)
+  }
+
+  getUserReviews = (id) => {
+    fetchAuthorizedGet(`${this.state.apiUrl}/users/${id}/reviews`, auth.getToken())
+      .then(({ error, reviews }) => {
+        if (error) {
+          console.log(error)
+        }
+        else this.setState({ reviews })
+      })
+  }
+
   render() {
+    const { setUser } = this
+    const { user, apiUrl, reviews } = this.state
+    const reviewsLoaded = reviews.length > 0
+
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <Container>
+          <Login  apiUrl={apiUrl}
+                  setUser={setUser}
+                  />
+        {user && <h1>Logged in: {user.email}</h1>}
+        {reviewsLoaded && <Reviews reviews={reviews} />}
+        </Container>
       </div>
-    );
+    )
   }
 }
 
-export default App;
+export default App
