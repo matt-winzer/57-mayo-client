@@ -4,16 +4,11 @@ import jwtDecode from 'jwt-decode'
 import { fetchPost } from '../lib/fetch'
 import * as auth from '../lib/authService'
 
-class Login extends Component {
+class Signup extends Component {
   state = {
     email: '',
     password: '',
     message: ''
-  }
-
-  componentDidMount() {
-    const token = auth.getToken()
-    if (token) this.props.setUser(jwtDecode(token))
   }
 
   handleChange = (e) => {
@@ -22,9 +17,9 @@ class Login extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
-    fetchPost(`${this.props.apiUrl}/auth/login`, this.state)
+    fetchPost(`${this.props.apiUrl}/auth/signup`, this.state)
       .then(({ error, token }) => {
-        if (error) this.setState({ message: error})
+        if (error) this.setState({ message: error })
         else {
           auth.setToken(token)
           this.props.setUser(jwtDecode(token))
@@ -52,7 +47,7 @@ class Login extends Component {
     return (
       <Card>
         <Card.Content>
-          <Card.Header>Login</Card.Header>
+          <Card.Header>Signup</Card.Header>
           <Form onSubmit={handleSubmit}>
             <Form.Field>
               <label>Email</label>
@@ -62,13 +57,13 @@ class Login extends Component {
               <label>Password</label>
               <input placeholder='Password' type='password' name='password' onChange={handleChange} />
             </Form.Field>
-            <Button positive type='submit'>Login</Button>
+            <Button positive type='submit'>Signup</Button>
           </Form>
           {message && <Message error>{message}</Message>}
-          </Card.Content>
+        </Card.Content>
       </Card>
     )
   }
 }
 
-export default Login
+export default Signup
