@@ -8,6 +8,7 @@ import { Container } from 'semantic-ui-react'
 import Login from './components/Login'
 import Signup from './components/Signup'
 import Reviews from './components/Reviews'
+import Navbar from './components/Navbar'
 
 const apiUrl = 'http://localhost:3000/api'
 
@@ -23,6 +24,13 @@ class App extends Component {
     this.getUserReviews(user.id)
   }
 
+  removeUser = () => {
+    this.setState({
+      user: '',
+      reviews: []
+    })
+  }
+
   getUserReviews = (id) => {
     fetchAuthorizedGet(`${this.state.apiUrl}/users/${id}/reviews`, auth.getToken())
       .then(({ error, reviews }) => {
@@ -34,12 +42,15 @@ class App extends Component {
   }
 
   render() {
-    const { setUser } = this
+    const { setUser, removeUser } = this
     const { user, apiUrl, reviews } = this.state
     const reviewsLoaded = reviews.length > 0
 
     return (
       <div className="App">
+      <Navbar user={user}
+              removeUser={removeUser}
+              />
         <Container>
           <div className='authentication-container'>
             <Login  apiUrl={apiUrl}
