@@ -47,7 +47,7 @@ class Login extends Component {
 
   render() {
     const { handleChange, handleSubmit } = this
-    const { message } = this.state
+    const { message, email, password } = this.state
 
     return (
       <Card>
@@ -56,11 +56,21 @@ class Login extends Component {
           <Form onSubmit={handleSubmit}>
             <Form.Field>
               <label>Email</label>
-              <input placeholder='Email' type='email' name='email' onChange={handleChange} />
+              <input  placeholder='Email'
+                      type='email'
+                      name='email'
+                      onChange={handleChange}
+                      value={email}
+                      />
             </Form.Field>
             <Form.Field>
               <label>Password</label>
-              <input placeholder='Password' type='password' name='password' onChange={handleChange} />
+              <input  placeholder='Password'
+                      type='password'
+                      name='password'
+                      onChange={handleChange}
+                      value={password}
+                      />
             </Form.Field>
             <Button positive type='submit'>Login</Button>
           </Form>
