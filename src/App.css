@@ -1,6 +1,14 @@
 .user-reviews {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-  /* align */
+  justify-content: space-around;
+}
+
+.authentication-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.ui.card {
+  margin: 1em 0 !important;
 }

@@ -6,6 +6,7 @@ import * as auth from './lib/authService'
 // Components
 import { Container } from 'semantic-ui-react'
 import Login from './components/Login'
+import Signup from './components/Signup'
 import Reviews from './components/Reviews'
 
 const apiUrl = 'http://localhost:3000/api'
@@ -40,9 +41,14 @@ class App extends Component {
     return (
       <div className="App">
         <Container>
-          <Login  apiUrl={apiUrl}
-                  setUser={setUser}
-                  />
+          <div className='authentication-container'>
+            <Login  apiUrl={apiUrl}
+                    setUser={setUser}
+                    />
+            <Signup  apiUrl={apiUrl}
+                    setUser={setUser}
+                    />
+          </div>
         {user && <h1>Logged in: {user.email}</h1>}
         {reviewsLoaded && <Reviews reviews={reviews} />}
         </Container>
