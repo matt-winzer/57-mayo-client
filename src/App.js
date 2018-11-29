@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import './App.css'
 import { fetchAuthorizedGet } from './lib/fetch'
+import * as auth from './lib/authService'
 
 // Components
 import { Container } from 'semantic-ui-react'
@@ -22,17 +23,13 @@ class App extends Component {
   }
 
   getUserReviews = (id) => {
-    fetchAuthorizedGet(`${this.state.apiUrl}/users/${id}/reviews`, this.getToken())
+    fetchAuthorizedGet(`${this.state.apiUrl}/users/${id}/reviews`, auth.getToken())
       .then(({ error, reviews }) => {
         if (error) {
           console.log(error)
         }
         else this.setState({ reviews })
       })
-  }
-
-  getToken = () => {
-    return localStorage.getItem('token')
   }
 
   render() {

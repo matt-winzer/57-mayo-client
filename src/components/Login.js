@@ -2,12 +2,18 @@ import React, { Component } from 'react'
 import { Button, Card, Form, Message } from 'semantic-ui-react'
 import jwtDecode from 'jwt-decode'
 import { fetchPost } from '../lib/fetch'
+import * as auth from '../lib/authService'
 
 class Login extends Component {
   state = {
     email: '',
     password: '',
     message: ''
+  }
+
+  componentDidMount() {
+    const token = auth.getToken()
+    if (token) this.props.setUser(jwtDecode(token))
   }
 
   handleChange = (e) => {
@@ -20,7 +26,7 @@ class Login extends Component {
       .then(({ error, token }) => {
         if (error) this.setState({ message: error})
         else {
-          this.setToken(token)
+          auth.setToken(token)
           this.props.setUser(jwtDecode(token))
           this.resetMessage()
         }
@@ -29,10 +35,6 @@ class Login extends Component {
 
   resetMessage = () => {
     this.setState({ message: '' })
-  }
-
-  setToken = (token) => {
-    return localStorage.setItem('token', token)
   }
 
   render() {
@@ -52,7 +54,7 @@ class Login extends Component {
               <label>Password</label>
               <input placeholder='Password' type='password' name='password' onChange={handleChange} />
             </Form.Field>
-            <Button type='submit'>Login</Button>
+            <Button positive type='submit'>Login</Button>
           </Form>
           {message && <Message error>{message}</Message>}
           </Card.Content>
