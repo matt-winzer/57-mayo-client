@@ -37,6 +37,14 @@ class Login extends Component {
     this.setState({ message: '' })
   }
 
+  resetForm = () => {
+    this.setState({
+      email: '',
+      password: '',
+      message: ''
+    })
+  }
+
   render() {
     const { handleChange, handleSubmit } = this
     const { message } = this.state
