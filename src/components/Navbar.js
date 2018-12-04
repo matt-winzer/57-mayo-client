@@ -4,15 +4,12 @@ import { Menu } from 'semantic-ui-react'
 import * as auth from '../lib/authService'
 
 class Navbar extends Component {
-  // state = { activeItem: 'home' }
-
   handleLogout = () => {
     auth.logout()
     this.props.removeUser()
   }
 
   render() {
-    // const {  } = this.state
     const { user, activeItem, handleItemClick } = this.props
 
     return (

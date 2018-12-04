@@ -17,7 +17,7 @@ class App extends Component {
     apiUrl: apiUrl,
     user: '',
     reviews: [],
-    activeItem: 'reviews'
+    activeItem: 'home'
   }
 
   handleItemClick = (e, { name }) => this.setState({ activeItem: name })
