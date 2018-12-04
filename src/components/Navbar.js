@@ -4,9 +4,7 @@ import { Menu } from 'semantic-ui-react'
 import * as auth from '../lib/authService'
 
 class Navbar extends Component {
-  state = { activeItem: 'home' }
-
-  handleItemClick = (e, { name }) => this.setState({ activeItem: name })
+  // state = { activeItem: 'home' }
 
   handleLogout = () => {
     auth.logout()
@@ -14,22 +12,17 @@ class Navbar extends Component {
   }
 
   render() {
-    const { activeItem } = this.state
-    const { user } = this.props
+    // const {  } = this.state
+    const { user, activeItem, handleItemClick } = this.props
 
     return (
       <div>
         <Menu pointing secondary>
-          <Menu.Item name='home' active={activeItem === 'home'} onClick={this.handleItemClick} />
+          <Menu.Item name='home' active={activeItem === 'home'} onClick={handleItemClick} />
           <Menu.Item
-            name='messages'
-            active={activeItem === 'messages'}
-            onClick={this.handleItemClick}
-          />
-          <Menu.Item
-            name='friends'
-            active={activeItem === 'friends'}
-            onClick={this.handleItemClick}
+            name='reviews'
+            active={activeItem === 'reviews'}
+            onClick={handleItemClick}
           />
           <Menu.Menu position='right'>
           {user
@@ -41,7 +34,7 @@ class Navbar extends Component {
             : <Menu.Item
               name='login'
               active={activeItem === 'login'}
-              onClick={this.handleItemClick}
+              onClick={handleItemClick}
               />
             }
           </Menu.Menu>

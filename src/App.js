@@ -16,8 +16,11 @@ class App extends Component {
   state = {
     apiUrl: apiUrl,
     user: '',
-    reviews: []
+    reviews: [],
+    activeItem: 'reviews'
   }
+
+  handleItemClick = (e, { name }) => this.setState({ activeItem: name })
 
   setUser = (user) => {
     this.setState({ user })
@@ -42,14 +45,16 @@ class App extends Component {
   }
 
   render() {
-    const { setUser, removeUser } = this
-    const { user, apiUrl, reviews } = this.state
+    const { setUser, removeUser, handleItemClick } = this
+    const { user, apiUrl, reviews, activeItem } = this.state
     const reviewsLoaded = reviews.length > 0
 
     return (
       <div className="App">
       <Navbar user={user}
               removeUser={removeUser}
+              activeItem={activeItem}
+              handleItemClick={handleItemClick}
               />
         <Container>
           <div className='authentication-container'>
