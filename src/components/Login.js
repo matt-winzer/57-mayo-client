@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import { Button, Card, Form, Message } from 'semantic-ui-react'
 import jwtDecode from 'jwt-decode'
 import { fetchPost } from '../lib/fetch'
@@ -50,7 +50,7 @@ class Login extends Component {
     const { message, email, password } = this.state
 
     return (
-      <Card>
+      <Card fluid>
         <Card.Content>
           <Card.Header>Login</Card.Header>
           <Form onSubmit={handleSubmit}>

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Menu } from 'semantic-ui-react'
+import { Link } from 'react-router-dom'
 
 import * as auth from '../lib/authService'
 
@@ -15,12 +16,17 @@ class Navbar extends Component {
     return (
       <div>
         <Menu pointing secondary>
-          <Menu.Item name='home' active={activeItem === 'home'} onClick={handleItemClick} />
-          <Menu.Item
-            name='reviews'
-            active={activeItem === 'reviews'}
-            onClick={handleItemClick}
-          />
+          <Link to='/'>
+            <Menu.Item as='p' name='home' active={activeItem === 'home'} onClick={handleItemClick} />
+          </Link>
+          <Link to='/reviews'>
+            <Menu.Item
+              name='reviews'
+              active={activeItem === 'reviews'}
+              onClick={handleItemClick}
+            />
+          </Link>
+          
           <Menu.Menu position='right'>
           {user
             ? <Menu.Item
@@ -28,11 +34,13 @@ class Navbar extends Component {
               active={activeItem === 'logout'}
               onClick={this.handleLogout}
               />
-            : <Menu.Item
-              name='login'
-              active={activeItem === 'login'}
-              onClick={handleItemClick}
-              />
+            : <Link to='/login'>
+                <Menu.Item
+                  name='login'
+                  active={activeItem === 'login'}
+                  onClick={handleItemClick}
+                />
+              </Link>
             }
           </Menu.Menu>
         </Menu>
