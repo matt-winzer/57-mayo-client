@@ -22,7 +22,7 @@ class App extends Component {
   }
 
   setUser = (user) => {
-    this.setState({ user: user, activeItem: 'reviews' })
+    this.setState({ user })
     this.getUserReviews(user.id)
   }
 
@@ -45,7 +45,7 @@ class App extends Component {
 
   render() {
     const { setUser, removeUser } = this
-    const { user, apiUrl, reviews, activeItem } = this.state
+    const { user, apiUrl, reviews } = this.state
 
     return (
       <Router>
@@ -56,7 +56,6 @@ class App extends Component {
                                 history={props.history}
                                 user={user}
                                 removeUser={removeUser}
-                                activeItem={activeItem}
                               />}
           />
           <Container>

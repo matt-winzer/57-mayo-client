@@ -1,4 +1,5 @@
 import React from 'react'
+import { Redirect } from 'react-router-dom'
 
 // Components
 import Review from './Review'
@@ -11,6 +12,8 @@ const Reviews = ({ reviews, user }) => {
             content={review.content}
             />
   ))
+
+  if (!user.id) return <Redirect to='/' />
  
   return (
     <div>
