@@ -3,7 +3,7 @@ import React from 'react'
 // Components
 import Review from './Review'
 
-const Reviews = ({ reviews }) => {
+const Reviews = ({ reviews, user }) => {
   const reviewComponents = reviews.map(review => (
     <Review key={review.id}
             market={review.market}
@@ -14,6 +14,7 @@ const Reviews = ({ reviews }) => {
  
   return (
     <div>
+      <h1>Logged in as: {user.email}</h1>
       <h2>Reviews:</h2>
       <div className='user-reviews'>
         { reviewComponents }

@@ -4,6 +4,8 @@ import jwtDecode from 'jwt-decode'
 import { fetchPost } from '../lib/fetch'
 import * as auth from '../lib/authService'
 
+import { Redirect } from 'react-router-dom'
+
 class Signup extends Component {
   state = {
     email: '',
@@ -43,9 +45,12 @@ class Signup extends Component {
   render() {
     const { handleChange, handleSubmit } = this
     const { message, email, password } = this.state
+    const { user } = this.props
+
+    if (user.id) return <Redirect to='/reviews' />
 
     return (
-      <Card>
+      <Card fluid>
         <Card.Content>
           <Card.Header>Signup</Card.Header>
           <Form onSubmit={handleSubmit}>

@@ -1,8 +1,12 @@
 import React, { Component, Fragment } from 'react'
 import { Button, Card, Form, Message } from 'semantic-ui-react'
+import { Redirect } from 'react-router-dom'
+
+// Utilities
 import jwtDecode from 'jwt-decode'
 import { fetchPost } from '../lib/fetch'
 import * as auth from '../lib/authService'
+
 
 class Login extends Component {
   state = {
@@ -28,7 +32,6 @@ class Login extends Component {
         else {
           auth.setToken(token)
           this.props.setUser(jwtDecode(token))
-          this.resetForm()
         }
       })
   }
@@ -48,6 +51,9 @@ class Login extends Component {
   render() {
     const { handleChange, handleSubmit } = this
     const { message, email, password } = this.state
+    const { user } = this.props
+
+    if (user.id) return <Redirect to='/reviews' />
 
     return (
       <Card fluid>

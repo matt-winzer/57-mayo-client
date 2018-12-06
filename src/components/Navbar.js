@@ -1,50 +1,61 @@
 import React, { Component } from 'react'
 import { Menu } from 'semantic-ui-react'
-import { Link } from 'react-router-dom'
+import { Link, NavLink, Redirect } from 'react-router-dom'
 
+// Utilities
 import * as auth from '../lib/authService'
 
 class Navbar extends Component {
   handleLogout = () => {
     auth.logout()
     this.props.removeUser()
+    this.props.history.push('/login')
   }
 
+
   render() {
-    const { user, activeItem, handleItemClick } = this.props
+    const { user } = this.props
 
     return (
-      <div>
         <Menu pointing secondary>
-          <Link to='/'>
-            <Menu.Item as='p' name='home' active={activeItem === 'home'} onClick={handleItemClick} />
-          </Link>
-          <Link to='/reviews'>
-            <Menu.Item
-              name='reviews'
-              active={activeItem === 'reviews'}
-              onClick={handleItemClick}
-            />
-          </Link>
+          <Menu.Item
+            as={ NavLink }
+            exact
+            to='/'
+            name='home'
+            activeClassName='active'
+          />
+          {user.id
+            ? <Menu.Item
+                as={ NavLink }
+                to='/reviews'
+                name='reviews'
+                activeClassName='active'
+              />
+            : <Menu.Item
+                  as={ NavLink }
+                  to='/signup'
+                  name='signup'
+                  activeClassName='active'
+              />
+          }
           
           <Menu.Menu position='right'>
-          {user
+          {user.id
             ? <Menu.Item
-              name='logout'
-              active={activeItem === 'logout'}
-              onClick={this.handleLogout}
+                name='logout'
+                onClick={this.handleLogout}
               />
-            : <Link to='/login'>
-                <Menu.Item
-                  name='login'
-                  active={activeItem === 'login'}
-                  onClick={handleItemClick}
-                />
-              </Link>
+            : <Menu.Item
+                as={ NavLink }
+                to='/login'
+                name='login'
+                activeClassName='active'
+              />
             }
+            
           </Menu.Menu>
         </Menu>
-      </div>
     )
   }
 }

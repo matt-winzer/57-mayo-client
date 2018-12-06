@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import './App.css'
 import { fetchAuthorizedGet } from './lib/fetch'
 import * as auth from './lib/authService'
-import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 // Components
 import { Container } from 'semantic-ui-react'
@@ -17,15 +17,12 @@ const apiUrl = 'http://localhost:3000/api'
 class App extends Component {
   state = {
     apiUrl: apiUrl,
-    user: '',
-    reviews: [],
-    activeItem: 'home'
+    user: {},
+    reviews: []
   }
 
-  handleItemClick = (e, { name }) => this.setState({ activeItem: name })
-
   setUser = (user) => {
-    this.setState({ user })
+    this.setState({ user: user, activeItem: 'reviews' })
     this.getUserReviews(user.id)
   }
 
@@ -47,44 +44,51 @@ class App extends Component {
   }
 
   render() {
-    const { setUser, removeUser, handleItemClick } = this
+    const { setUser, removeUser } = this
     const { user, apiUrl, reviews, activeItem } = this.state
-    const reviewsLoaded = reviews.length > 0
 
     return (
       <Router>
-        <div className="App">
-        <Navbar user={user}
-                removeUser={removeUser}
-                activeItem={activeItem}
-                handleItemClick={handleItemClick}
-                />
+        <div>
+          <Route
+            path='/'
+            render={props =>  <Navbar
+                                history={props.history}
+                                user={user}
+                                removeUser={removeUser}
+                                activeItem={activeItem}
+                              />}
+          />
           <Container>
             <Switch>
-              <Route exact path='/' component={Home} />
-              <Route  path='/login'
-                      render={() => <Login
+              <Route
+                exact path='/' 
+                component={Home}
+              />
+              <Route 
+                path='/login'
+                render={() => <Login
                                 apiUrl={apiUrl}
                                 setUser={setUser}
-                                /> }
+                                user={user}
+                              /> }
               />
-              <Route path='/reviews'
-                render={() => <Reviews reviews={reviews} />}
+              <Route 
+                path='/signup'
+                render={() => <Signup
+                                apiUrl={apiUrl}
+                                setUser={setUser}
+                                user={user}
+                              /> }
               />
-
+              <Route
+                path='/reviews'
+                render={() => <Reviews
+                                reviews={reviews}
+                                user={user}
+                                />}
+              />
             </Switch>
-            {/* <div className='authentication-container'>
-              <Login  apiUrl={apiUrl}
-                      setUser={setUser}
-                      />
-              <Signup  apiUrl={apiUrl}
-                      setUser={setUser}
-                      />
-            </div>
-          {user && <h1>Logged in: {user.email}</h1>}
-          {reviewsLoaded
-            ? <Reviews reviews={reviews} />
-            : <h2>Reviews: None Available</h2>} */}
           </Container>
         </div>
       </Router>
