@@ -1,9 +1,10 @@
 import React from 'react'
+import { Redirect } from 'react-router-dom'
 
 // Components
 import Review from './Review'
 
-const Reviews = ({ reviews }) => {
+const Reviews = ({ reviews, user }) => {
   const reviewComponents = reviews.map(review => (
     <Review key={review.id}
             market={review.market}
@@ -11,10 +12,13 @@ const Reviews = ({ reviews }) => {
             content={review.content}
             />
   ))
+
+  if (!user.id) return <Redirect to='/' />
  
   return (
     <div>
-      <h1>Reviews:</h1>
+      <h1>Logged in as: {user.email}</h1>
+      <h2>Reviews:</h2>
       <div className='user-reviews'>
         { reviewComponents }
       </div>
