@@ -1,0 +1,54 @@
+.user-reviews {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.authentication-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.ui.card {
+  margin: 1em 0 !important;
+}
+
+.information-header {
+  display: flex;
+}
+
+.logo-image-header {
+  margin-right: 1em;
+}
+
+img#background-image {
+  /* Set rules to fill background */
+  min-height: 100%;
+  min-width: 1024px;
+  
+  /* Set up proportionate scaling */
+  width: 100%;
+  height: auto;
+	
+  /* Set up positioning */
+  position: fixed !important;
+  top: 0;
+  left: 0;
+
+  z-index: -1;
+  filter: grayscale(25%);
+
+}
+
+/* NAVBAR */
+.ui.secondary.pointing.menu {
+  margin-top: 0;
+  border-bottom: none;
+}
+
+/* @media screen and (max-width: 1024px) {
+  img#background-image {
+    left: 50%;
+    margin-left: -512px;
+  }
+} */

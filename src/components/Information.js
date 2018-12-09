@@ -4,12 +4,19 @@ import { Header, Icon, Card, Button, Image } from 'semantic-ui-react'
 const Information = () => {
   return (
     <Fragment>
-      <Header as='h1'>
-        <Icon name='home' />
-        <Header.Content>57 Mayo: Information</Header.Content>
-      </Header>
+      <header className='information-header'>
+        {/* <Header as='h1' className='page-header'>57 Mayo: Investors Metro Monitor</Header> */}
+      </header>
       <Card fluid>
-        <Card.Content>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</Card.Content>
+        <Card.Content>
+          <Card.Header>Highly Practical Advice for Investors</Card.Header>
+        </Card.Content>
+        <Card.Content>
+          <p>Connect the dots between economic data and YOUR investment.</p>
+        </Card.Content>
+        <Card.Content>
+          <p>A subscription includes all 200 markets. $195 per month. Click Here to Subscribe!</p>
+        </Card.Content>
       </Card>
     </Fragment>
   )

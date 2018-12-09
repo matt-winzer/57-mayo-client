@@ -1,13 +1,13 @@
 import React, { Component, Fragment } from 'react'
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
-import './App.css'
+import './App.scss'
 
 // Utilities
 import { fetchAuthorizedGet } from './lib/fetch'
 import * as auth              from './lib/authService'
 
 // Semantic
-import { Container } from 'semantic-ui-react'
+import { Container, Image } from 'semantic-ui-react'
 
 // Components
 import Home         from './components/Home'
@@ -57,15 +57,17 @@ class App extends Component {
     return (
       <Router>
         <Fragment>
+          <img id='background-image' src={`https://images.unsplash.com/photo-1459767129954-1b1c1f9b9ace?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2550&q=80`} />
           <Route
             path='/'
             render={props =>  <Navbar
-                                history={props.history}
-                                user={user}
-                                removeUser={removeUser}
-                              />}
+              history={props.history}
+              user={user}
+              removeUser={removeUser}
+              />}
           />
           <Container>
+          <Image className='logo-image-header' src='https://www.localmarketmonitor.com/images/logo.png' />
             <Switch>
               <Route
                 exact path='/' 
