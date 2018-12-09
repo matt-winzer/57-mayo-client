@@ -1,23 +1,29 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
 import './App.css'
+
+// Utilities
 import { fetchAuthorizedGet } from './lib/fetch'
-import * as auth from './lib/authService'
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import * as auth              from './lib/authService'
+
+// Semantic
+import { Container } from 'semantic-ui-react'
 
 // Components
-import { Container } from 'semantic-ui-react'
-import Home from './components/Home'
-import Login from './components/Login'
-import Signup from './components/Signup'
-import Reviews from './components/Reviews'
-import Navbar from './components/Navbar'
+import Home         from './components/Home'
+import Login        from './components/Login'
+import Signup       from './components/Signup'
+import Reviews      from './components/Reviews'
+import Navbar       from './components/Navbar'
+import Information  from './components/Information'
 
-const localApi = 'http://localhost:3000/api'
+// API
+const localApi    = 'http://localhost:3000/api'
 const deployedApi = 'https://fifty-seven-mayo.herokuapp.com/api'
 
 class App extends Component {
   state = {
-    apiUrl: deployedApi,
+    apiUrl: localApi,
     user: {},
     reviews: []
   }
@@ -45,12 +51,12 @@ class App extends Component {
   }
 
   render() {
-    const { setUser, removeUser } = this
+    const { setUser, removeUser }   = this
     const { user, apiUrl, reviews } = this.state
 
     return (
       <Router>
-        <div>
+        <Fragment>
           <Route
             path='/'
             render={props =>  <Navbar
@@ -64,6 +70,10 @@ class App extends Component {
               <Route
                 exact path='/' 
                 component={Home}
+              />
+              <Route
+                path='/information' 
+                component={Information}
               />
               <Route 
                 path='/login'
@@ -90,7 +100,7 @@ class App extends Component {
               />
             </Switch>
           </Container>
-        </div>
+        </Fragment>
       </Router>
     )
   }
