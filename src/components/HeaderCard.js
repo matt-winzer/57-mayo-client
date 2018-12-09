@@ -7,7 +7,7 @@ import {
 const HeaderCard = ({ header, subheader }) => {
   return (
     <Card fluid className='header-card'>
-      <Card.Content>
+      <Card.Content textAlign={'center'}>
         <Header as='h1'>
           <Header.Content>{header}</Header.Content>
           <Header.Subheader>{subheader}</Header.Subheader>
