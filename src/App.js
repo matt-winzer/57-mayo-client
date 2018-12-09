@@ -12,11 +12,12 @@ import Signup from './components/Signup'
 import Reviews from './components/Reviews'
 import Navbar from './components/Navbar'
 
-const apiUrl = 'http://localhost:3000/api'
+const localApi = 'http://localhost:3000/api'
+const deployedApi = 'https://fifty-seven-mayo.herokuapp.com/api'
 
 class App extends Component {
   state = {
-    apiUrl: apiUrl,
+    apiUrl: deployedApi,
     user: {},
     reviews: []
   }
