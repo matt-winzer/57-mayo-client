@@ -25,6 +25,12 @@ class Navbar extends Component {
             name='home'
             activeClassName='active'
           />
+          <Menu.Item
+            as={ NavLink }
+            to='/information'
+            name='information'
+            activeClassName='active'
+          />
           {user.id
             ? <Menu.Item
                 as={ NavLink }

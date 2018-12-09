@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react'
-import { Button, Card, Form, Message } from 'semantic-ui-react'
+import { Button, Card, Form, Message, Header } from 'semantic-ui-react'
 import { Redirect } from 'react-router-dom'
 
 // Utilities
@@ -56,6 +56,10 @@ class Login extends Component {
     if (user.id) return <Redirect to='/reviews' />
 
     return (
+      <Fragment>
+        <header className='information-header'>
+          <Header as='h1' className='page-header'>Login</Header>
+        </header>
       <Card fluid>
         <Card.Content>
           <Card.Header>Login</Card.Header>
@@ -83,6 +87,7 @@ class Login extends Component {
           {message && <Message error>{message}</Message>}
           </Card.Content>
       </Card>
+      </Fragment>
     )
   }
 }
