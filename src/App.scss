@@ -13,13 +13,9 @@
   margin: 1em 0 !important;
 }
 
-.information-header {
-  display: flex;
-}
-
-.logo-image-header {
-  margin-right: 1em;
-}
+// .logo-image-header {
+//   margin-right: 1em;
+// }
 
 img#background-image {
   /* Set rules to fill background */
@@ -52,3 +48,11 @@ img#background-image {
     margin-left: -512px;
   }
 } */
+
+
+// INFORMATION PAGE
+
+.header-card {
+  text-align: center;
+  padding: 2em !important;
+}
