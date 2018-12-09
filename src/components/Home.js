@@ -1,6 +1,8 @@
 import React from 'react'
 import {
-  Grid, Button
+  Grid,
+  Button,
+  Icon
 } from 'semantic-ui-react'
 
 // Components
@@ -22,20 +24,26 @@ const Home = () => {
         <Grid.Column >
           <InfoCard
             header={'Expert Advice'}
-            content={'Reviews of 200 Real Estate Markets\n+\nPopular Counties'}
+            icon='plus'
+            contentFirst={'Reviews of 200 Real Estate Markets'}
+            contentSecond={'Popular Counties'}
           />
         </Grid.Column>
         <Grid.Column >
           <InfoCard
             header={'Connect the Dots'}
-            content={'Between Economic Data\n&\nYour Investment'}
+            icon='angle double down'
+            contentFirst={'Between Economic Data'}
+            contentSecond={'Your Investment'}
           />
 
         </Grid.Column>
         <Grid.Column >
           <InfoCard
             header={'Subscribe'}
-            content={'Subscription Includes:\n200 Markets\n$195/month'}
+            icon='arrows alternate vertical'
+            contentFirst={'200 Markets'}
+            contentSecond={'$195/month'}
           />
         </Grid.Column>
       </Grid.Row>
