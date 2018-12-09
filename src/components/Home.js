@@ -1,20 +1,49 @@
-import React, { Fragment } from 'react'
-import { Header, Icon, Card, Button, Image } from 'semantic-ui-react'
-import { Link } from 'react-router-dom'
+import React from 'react'
+import {
+  Grid, Button
+} from 'semantic-ui-react'
 
-export default function Home() {
+// Components
+import HeaderCard from './HeaderCard'
+import InfoCard from './InfoCard'
+
+const Home = () => {
   return (
-    <Fragment>
-      <Header as='h1'>
-        <Icon name='home' />
-        <Header.Content>Welcome to 57 Mayo</Header.Content>
-      </Header>
-      <Button as={ Link } to='/signup'>Signup</Button>
-      <Button as={ Link } to='/login'>Login</Button>
-      <Card fluid>
-        <Card.Content>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</Card.Content>
-      </Card>
-      <Image src='/jesse-roberts-house-unsplash.jpg'></Image>
-    </Fragment>
+    <Grid stackable>
+      <Grid.Row centered>
+        <Grid.Column mobile={16} tablet={12} computer={8}>
+          <HeaderCard
+            header={'Investors Metro Monitor'}
+            subheader={'Highly Practical Advice for Investors'}
+          />
+        </Grid.Column>
+      </Grid.Row>
+      <Grid.Row columns={3}>
+        <Grid.Column >
+          <InfoCard
+            header={'Expert Advice'}
+            content={'Reviews of 200 Real Estate Markets\n+\nPopular Counties'}
+          />
+        </Grid.Column>
+        <Grid.Column >
+          <InfoCard
+            header={'Connect the Dots'}
+            content={'Between Economic Data\n&\nYour Investment'}
+          />
+
+        </Grid.Column>
+        <Grid.Column >
+          <InfoCard
+            header={'Subscribe'}
+            content={'Subscription Includes:\n200 Markets\n$195/month'}
+          />
+        </Grid.Column>
+      </Grid.Row>
+      <Grid.Row centered>
+        <Button size={'massive'} color={'violet'}>Subscribe Now</Button>
+      </Grid.Row>
+    </Grid>
   )
 }
+
+export default Home

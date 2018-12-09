@@ -13,29 +13,8 @@ const Information = () => {
       <Grid.Row centered>
         <Grid.Column mobile={16} tablet={12} computer={8}>
           <HeaderCard
-            header={'Investors Metro Monitor'}
-            subheader={'Highly Practical Advice for Investors'}
-          />
-        </Grid.Column>
-      </Grid.Row>
-      <Grid.Row columns={3}>
-        <Grid.Column >
-          <InfoCard
-            header={'Expert Advice'}
-            content={'Reviews of 200 Real Estate Markets\n+\nPopular Counties'}
-          />
-        </Grid.Column>
-        <Grid.Column >
-          <InfoCard
-            header={'Connect the Dots'}
-            content={'Between Economic Data\n&\nYour Investment'}
-          />
-
-        </Grid.Column>
-        <Grid.Column >
-          <InfoCard
-            header={'Subscribe'}
-            content={'Subscription Includes:\n200 Markets\n$195/month'}
+            header={'Information'}
+            subheader={'Product Features'}
           />
         </Grid.Column>
       </Grid.Row>
