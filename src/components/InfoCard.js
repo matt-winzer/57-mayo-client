@@ -1,6 +1,5 @@
 import React from 'react'
 import {
-  Header,
   Card
 } from 'semantic-ui-react'
 
