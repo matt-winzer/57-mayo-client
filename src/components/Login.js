@@ -1,12 +1,20 @@
-import React, { Component, Fragment } from 'react'
-import { Button, Card, Form, Message, Header } from 'semantic-ui-react'
+import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
+import {
+  Button,
+  Card,
+  Form,
+  Message,
+  Grid
+} from 'semantic-ui-react'
 
 // Utilities
 import jwtDecode from 'jwt-decode'
 import { fetchPost } from '../lib/fetch'
 import * as auth from '../lib/authService'
 
+// Components
+import HeaderCard from './HeaderCard'
 
 class Login extends Component {
   state = {
@@ -56,38 +64,43 @@ class Login extends Component {
     if (user.id) return <Redirect to='/reviews' />
 
     return (
-      <Fragment>
-        <header className='information-header'>
-          <Header as='h1' className='page-header'>Login</Header>
-        </header>
-      <Card fluid>
-        <Card.Content>
-          <Card.Header>Login</Card.Header>
-          <Form onSubmit={handleSubmit}>
-            <Form.Field>
-              <label>Email</label>
-              <input  placeholder='Email'
-                      type='email'
-                      name='email'
-                      onChange={handleChange}
-                      value={email}
-                      />
-            </Form.Field>
-            <Form.Field>
-              <label>Password</label>
-              <input  placeholder='Password'
-                      type='password'
-                      name='password'
-                      onChange={handleChange}
-                      value={password}
-                      />
-            </Form.Field>
-            <Button positive type='submit'>Login</Button>
-          </Form>
-          {message && <Message error>{message}</Message>}
-          </Card.Content>
-      </Card>
-      </Fragment>
+      <Grid stackable>
+        <Grid.Row centered>
+          <Grid.Column mobile={16} tablet={12} computer={8}>
+            <HeaderCard
+              header={'Metro Monitor Login'}
+              subheader={'Login to Existing Account'}
+            />
+          </Grid.Column>
+        </Grid.Row>
+        <Card fluid>
+          <Card.Content>
+            <Card.Header>Login</Card.Header>
+            <Form onSubmit={handleSubmit}>
+              <Form.Field>
+                <label>Email</label>
+                <input  placeholder='Email'
+                        type='email'
+                        name='email'
+                        onChange={handleChange}
+                        value={email}
+                        />
+              </Form.Field>
+              <Form.Field>
+                <label>Password</label>
+                <input  placeholder='Password'
+                        type='password'
+                        name='password'
+                        onChange={handleChange}
+                        value={password}
+                        />
+              </Form.Field>
+              <Button positive type='submit'>Login</Button>
+            </Form>
+            {message && <Message error>{message}</Message>}
+            </Card.Content>
+        </Card>
+      </Grid>
     )
   }
 }

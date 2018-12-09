@@ -13,7 +13,7 @@ const Information = () => {
       <Grid.Row centered>
         <Grid.Column mobile={16} tablet={12} computer={8}>
           <HeaderCard
-            header={'Information'}
+            header={'Metro Monitor Information'}
             subheader={'Product Features'}
           />
         </Grid.Column>
