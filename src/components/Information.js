@@ -1,8 +1,9 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { 
-  Grid
+  Grid, Button
 } from 'semantic-ui-react'
 
+// Components
 import HeaderCard from './HeaderCard'
 import InfoCard from './InfoCard'
 
@@ -21,21 +22,25 @@ const Information = () => {
         <Grid.Column >
           <InfoCard
             header={'Expert Advice'}
-            content={'Reviews of 200 major real estate markets in the US and their most popular counties.'}
+            content={'Reviews of 200 Real Estate Markets\n+\nPopular Counties'}
           />
         </Grid.Column>
         <Grid.Column >
           <InfoCard
             header={'Connect the Dots'}
-            content={'Connect the dots between economic data and YOUR investment.'}
+            content={'Between Economic Data\n&\nYour Investment'}
           />
+
         </Grid.Column>
         <Grid.Column >
           <InfoCard
             header={'Subscribe'}
-            content={'A subscription includes all 200 markets. $195 per month.'}
+            content={'Subscription Includes:\n200 Markets\n$195/month'}
           />
         </Grid.Column>
+      </Grid.Row>
+      <Grid.Row centered>
+          <Button size={'massive'} color={'violet'}>Subscribe Now</Button>
       </Grid.Row>
     </Grid>
   )

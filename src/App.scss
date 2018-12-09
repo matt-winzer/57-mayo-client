@@ -56,6 +56,12 @@ img#background-image {
   padding: 2em !important;
 }
 
-p {
-  font-size: 1.2em !important;
+.header-card-header {
+  margin-bottom: .5em;
+}
+
+p.info-card-content {
+  font-size: 1.15em !important;
+  white-space: pre-line;
+  line-height: 2;
 }

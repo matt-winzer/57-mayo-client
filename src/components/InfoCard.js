@@ -10,8 +10,8 @@ const InfoCard = ({ header, content }) => {
       <Card.Content textAlign={'center'}>
         <Card.Header>{header}</Card.Header>
       </Card.Content>
-      <Card.Content>
-        <p>{content}</p>
+      <Card.Content textAlign={'center'}>
+        <p className='info-card-content'>{content}</p>
       </Card.Content>
     </Card>
   )
