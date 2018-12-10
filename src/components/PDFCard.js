@@ -10,13 +10,14 @@ const PDFCard = ({ header, path }) => {
         <Card.Header textAlign={'center'}>{header}</Card.Header>
       </Card.Content>
       <Card.Content className='pdf-card'>
-        <object
+        <iframe src={path} width="100%" height="100%"></iframe>
+        {/* <object
           data={path}
           type='application/pdf'
           width='100%'
           height='100%'
         >
-        </object>
+        </object> */}
       </Card.Content>
     </Card>
   )

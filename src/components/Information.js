@@ -133,11 +133,11 @@ const Information = () => {
             </Card.Content>
           </Card>
         </Grid.Column>
-        <Grid.Column tablet={8} computer={16}>
-          <PDFCard header='Sample Review' path={'http://www.xoxxu.com/IMMPage/Austin%20TX.pdf'} />
-        </Grid.Column>
       </Grid.Row>
       <Grid.Row>
+        <Grid.Column tablet={8} computer={16}>
+          <PDFCard header='Sample Review' path={'https://drive.google.com/file/d/1H7bBkYsNfuq7mBIKlm9J8o_IMyq3cHcr/preview'} />
+        </Grid.Column>
       </Grid.Row>
     </Grid>
   )
