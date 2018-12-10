@@ -64,7 +64,7 @@ class Signup extends Component {
         <Grid.Row centered>
           <Grid.Column mobile={16} tablet={12} computer={8}>
             <HeaderCard
-              header={'Metro Monitor Signup'}
+              header={'Investors Metro Monitor'}
               subheader={'Create a New Account'}
             />
           </Grid.Column>

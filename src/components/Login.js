@@ -68,7 +68,7 @@ class Login extends Component {
         <Grid.Row centered>
           <Grid.Column mobile={16} tablet={12} computer={8}>
             <HeaderCard
-              header={'Metro Monitor Login'}
+              header={'Investors Metro Monitor'}
               subheader={'Login to Existing Account'}
             />
           </Grid.Column>

@@ -18,8 +18,8 @@ const Information = () => {
       <Grid.Row centered>
         <Grid.Column mobile={16} tablet={12} computer={8}>
           <HeaderCard
-            header={'Metro Monitor Information'}
-            subheader={'Product Features & Sample'}
+            header={'Investors Metro Monitor'}
+            subheader={'Product Features & Sample Review'}
           />
         </Grid.Column>
       </Grid.Row>
