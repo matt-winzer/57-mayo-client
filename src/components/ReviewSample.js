@@ -1,9 +1,11 @@
 import React from 'react'
 import {
   Card,
-  Image,
   Grid
 } from 'semantic-ui-react'
+
+// Components
+import ReviewChart from './ReviewChart'
 
 const ReviewSample = ({ market, state, date, content, charts }) => {
   const contentComponents = content.map((paragraph, i) => {
@@ -14,9 +16,7 @@ const ReviewSample = ({ market, state, date, content, charts }) => {
 
   const chartComponents = charts.map((chart, i) => {
     return (
-      <Grid.Column textAlign='center' className='review-image-container'>
-        <Image key={i} src={chart} className='review-image' />
-      </Grid.Column>
+      <ReviewChart key={i} chart={chart} />
     )
   })
 
