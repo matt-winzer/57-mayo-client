@@ -135,7 +135,7 @@ const Information = () => {
         </Grid.Column>
       </Grid.Row>
       <Grid.Row>
-        <Grid.Column tablet={8} computer={16}>
+        <Grid.Column>
           <PDFCard header='Sample Review' path={'https://drive.google.com/file/d/1H7bBkYsNfuq7mBIKlm9J8o_IMyq3cHcr/preview'} />
         </Grid.Column>
       </Grid.Row>
