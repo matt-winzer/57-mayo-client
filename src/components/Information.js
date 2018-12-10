@@ -1,11 +1,15 @@
 import React from 'react'
 import { 
-  Grid, Button
+  Grid,
+  Button,
+  Card,
+  Embed
 } from 'semantic-ui-react'
 
 // Components
 import HeaderCard from './HeaderCard'
 import InfoCard from './InfoCard'
+import ViewPDF from './ViewPDF'
 
 const Information = () => {
   return (
@@ -20,6 +24,9 @@ const Information = () => {
       </Grid.Row>
       <Grid.Row centered>
           <Button size={'massive'} color={'violet'}>Subscribe Now</Button>
+      </Grid.Row>
+      <Grid.Row>
+        <ViewPDF path={'/austin-tx.pdf'} />
       </Grid.Row>
     </Grid>
   )
