@@ -12,7 +12,7 @@ function numberWithCommas(x) {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
-const ReviewSample = ({ market, state, date, content, charts, rentMin, rentMax }) => {
+const ReviewSample = ({ market, state, date, content, charts, rentMin, rentMax, returnCash, returnEquity, returnRisk }) => {
   const contentComponents = content.map((paragraph, i) => {
     return (
       <p key={i} className='review-paragraph'>{paragraph}</p>
@@ -56,16 +56,16 @@ const ReviewSample = ({ market, state, date, content, charts, rentMin, rentMax }
             <Grid.Column textAlign='center'>
               <Statistic.Group size={'mini'} widths={'3'}>
                 <Statistic>
-                  <Statistic.Value>${numberWithCommas(rentMin)}</Statistic.Value>
-                  <Statistic.Label>Min</Statistic.Label>
+                  <Statistic.Value>{returnCash}</Statistic.Value>
+                  <Statistic.Label>Cash on Cash</Statistic.Label>
                 </Statistic>
                 <Statistic>
-                  <Statistic.Value>Target Rent</Statistic.Value>
-                  <Statistic.Label>Range</Statistic.Label>
+                  <Statistic.Value>{returnEquity}</Statistic.Value>
+                  <Statistic.Label>Equity</Statistic.Label>
                 </Statistic>
                 <Statistic>
-                  <Statistic.Value>${numberWithCommas(rentMax)}</Statistic.Value>
-                  <Statistic.Label>Max</Statistic.Label>
+                  <Statistic.Value>{returnRisk}</Statistic.Value>
+                  <Statistic.Label>Risk</Statistic.Label>
                 </Statistic>
               </Statistic.Group>
               
