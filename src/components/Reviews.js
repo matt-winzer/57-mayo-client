@@ -52,6 +52,8 @@ const Reviews = ({ reviews, user }) => {
           date={review.date}
           content={review.content}
           charts={review.charts}
+          rentMin={review.targetRent.minimum}
+          rentMax={review.targetRent.maximum}
         />
       </div>
     </div>
