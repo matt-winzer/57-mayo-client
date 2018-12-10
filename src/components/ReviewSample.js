@@ -2,7 +2,8 @@ import React from 'react'
 import {
   Card,
   Grid,
-  Statistic
+  Statistic,
+  Icon
 } from 'semantic-ui-react'
 
 // Components
@@ -37,16 +38,17 @@ const ReviewSample = ({ market, state, date, content, charts, rentMin, rentMax, 
           <Grid.Row divided columns={2}>
 
             <Grid.Column textAlign='center'>
+              <h2>Target Rent</h2>
               <Statistic.Group size={'mini'} widths={'3'}>
-                <Statistic>
+                <Statistic color={'green'}>
                   <Statistic.Value>${numberWithCommas(rentMin)}</Statistic.Value>
                   <Statistic.Label>Min</Statistic.Label>
                 </Statistic>
                 <Statistic>
-                  <Statistic.Value>Target Rent</Statistic.Value>
+                  <Statistic.Value><Icon name='arrows alternate horizontal'/></Statistic.Value>
                   <Statistic.Label>Range</Statistic.Label>
                 </Statistic>
-                <Statistic>
+                <Statistic color={'green'}>
                   <Statistic.Value>${numberWithCommas(rentMax)}</Statistic.Value>
                   <Statistic.Label>Max</Statistic.Label>
                 </Statistic>
@@ -54,16 +56,17 @@ const ReviewSample = ({ market, state, date, content, charts, rentMin, rentMax, 
               
             </Grid.Column>
             <Grid.Column textAlign='center'>
+              <h2>Expected Returns</h2>
               <Statistic.Group size={'mini'} widths={'3'}>
-                <Statistic>
+                <Statistic color={'blue'}>
                   <Statistic.Value>{returnCash}</Statistic.Value>
                   <Statistic.Label>Cash on Cash</Statistic.Label>
                 </Statistic>
-                <Statistic>
+                <Statistic color={'blue'}>
                   <Statistic.Value>{returnEquity}</Statistic.Value>
                   <Statistic.Label>Equity</Statistic.Label>
                 </Statistic>
-                <Statistic>
+                <Statistic color={'red'}>
                   <Statistic.Value>{returnRisk}</Statistic.Value>
                   <Statistic.Label>Risk</Statistic.Label>
                 </Statistic>
