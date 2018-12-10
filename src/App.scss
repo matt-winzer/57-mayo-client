@@ -14,7 +14,9 @@
 }
 
 // .logo-image-header {
-//   margin-right: 1em;
+//   position: absolute !important;
+//   // top: 0;
+//   // left: 0;
 // }
 
 img#background-image {
@@ -36,12 +38,6 @@ img#background-image {
 
 }
 
-/* NAVBAR */
-.ui.secondary.pointing.menu {
-  margin-top: 0;
-  border-bottom: none;
-}
-
 /* @media screen and (max-width: 1024px) {
   img#background-image {
     left: 50%;
@@ -49,6 +45,11 @@ img#background-image {
   }
 } */
 
+/* NAVBAR */
+.ui.secondary.pointing.menu {
+  margin-top: 0;
+  border-bottom: none;
+}
 
 // INFORMATION PAGE
 
@@ -60,8 +61,16 @@ img#background-image {
   margin-bottom: .5em;
 }
 
-p.info-card-content {
+.info-card-content {
   font-size: 1.15em !important;
   white-space: pre-line;
   line-height: 2;
+}
+
+.pdf-card {
+  height: 80vh;
+}
+
+.info-item-bold {
+  font-weight: bold;
 }
