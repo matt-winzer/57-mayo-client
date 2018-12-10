@@ -134,7 +134,7 @@ const Information = () => {
           </Card>
         </Grid.Column>
         <Grid.Column tablet={8} computer={16}>
-          <PDFCard header='Sample Review' path={'/austin-tx.pdf'} />
+          <PDFCard header='Sample Review' path={'http://www.xoxxu.com/IMMPage/Austin%20TX.pdf'} />
         </Grid.Column>
       </Grid.Row>
       <Grid.Row>
