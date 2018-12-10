@@ -74,3 +74,25 @@ img#background-image {
 .info-item-bold {
   font-weight: bold;
 }
+
+// SAMPLE REVIEW
+
+.review-date {
+  float: right;
+}
+
+.review-paragraph {
+  font-size: 1.15em !important;
+  white-space: pre-line;
+  line-height: 1.5;
+}
+
+.review-image-container {
+  // display: flex !important;
+  // flex-d
+  justify-content: center !important;
+}
+
+.review-image {
+  max-height: 250px;
+}
