@@ -34,7 +34,7 @@ const ReviewSample = ({ market, state, date, content, charts, rentMin, rentMax }
       </Card.Content>
       <Card.Content>
         <Grid stackable>
-          <Grid.Row columns={2}>
+          <Grid.Row divided columns={2}>
 
             <Grid.Column textAlign='center'>
               <Statistic.Group size={'mini'} widths={'3'}>
@@ -53,9 +53,23 @@ const ReviewSample = ({ market, state, date, content, charts, rentMin, rentMax }
               </Statistic.Group>
               
             </Grid.Column>
-            {/* <Grid.Column>
-
-            </Grid.Column> */}
+            <Grid.Column textAlign='center'>
+              <Statistic.Group size={'mini'} widths={'3'}>
+                <Statistic>
+                  <Statistic.Value>${numberWithCommas(rentMin)}</Statistic.Value>
+                  <Statistic.Label>Min</Statistic.Label>
+                </Statistic>
+                <Statistic>
+                  <Statistic.Value>Target Rent</Statistic.Value>
+                  <Statistic.Label>Range</Statistic.Label>
+                </Statistic>
+                <Statistic>
+                  <Statistic.Value>${numberWithCommas(rentMax)}</Statistic.Value>
+                  <Statistic.Label>Max</Statistic.Label>
+                </Statistic>
+              </Statistic.Group>
+              
+            </Grid.Column>
           </Grid.Row>
         </Grid>
       </Card.Content>
