@@ -23,7 +23,7 @@ const deployedApi = 'https://fifty-seven-mayo.herokuapp.com/api'
 
 class App extends Component {
   state = {
-    apiUrl: localApi,
+    apiUrl: deployedApi,
     user: {},
     reviews: []
   }
