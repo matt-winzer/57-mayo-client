@@ -8,12 +8,24 @@ import {
 
 // Components
 import ReviewChart from './ReviewChart'
+import ReviewTable from './ReviewTable';
 
-function numberWithCommas(x) {
-  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+function numberWithCommas(num) {
+  return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
-const ReviewSample = ({ market, state, date, content, charts, rentMin, rentMax, returnCash, returnEquity, returnRisk }) => {
+const ReviewSample = ({ market,
+                        state,
+                        date,
+                        content,
+                        charts,
+                        rentMin,
+                        rentMax,
+                        returnCash,
+                        returnEquity,
+                        returnRisk,
+                        table
+                      }) => {
   const contentComponents = content.map((paragraph, i) => {
     return (
       <p key={i} className='review-paragraph'>{paragraph}</p>
@@ -60,7 +72,7 @@ const ReviewSample = ({ market, state, date, content, charts, rentMin, rentMax, 
               <Statistic.Group size={'mini'} widths={'3'}>
                 <Statistic color={'blue'}>
                   <Statistic.Value>{returnCash}</Statistic.Value>
-                  <Statistic.Label>Cash on Cash</Statistic.Label>
+                  <Statistic.Label>Cash</Statistic.Label>
                 </Statistic>
                 <Statistic color={'blue'}>
                   <Statistic.Value>{returnEquity}</Statistic.Value>
@@ -83,6 +95,24 @@ const ReviewSample = ({ market, state, date, content, charts, rentMin, rentMax, 
         <Grid stackable centered>
           <Grid.Row columns={3}>
             { chartComponents }
+          </Grid.Row>
+        </Grid>
+      </Card.Content>
+      <Card.Content>
+        <Grid stackable>
+          <Grid.Row divided columns={2}>
+            <Grid.Column textAlign='center'>
+              <h2>Current</h2> 
+              <ReviewTable
+                market={table.market}
+              />
+            </Grid.Column>
+            <Grid.Column textAlign='center'>
+              <h2>3 Year Forecast</h2>  
+              <ReviewTable
+                market={table.usAverage}
+              />
+            </Grid.Column>
           </Grid.Row>
         </Grid>
       </Card.Content>

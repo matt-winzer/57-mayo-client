@@ -29,7 +29,31 @@ const Reviews = ({ reviews, user }) => {
       '/home-price-change.png',
       '/job-growth-rate.png',
       '/home-vs-income.png'
-    ]
+    ],
+    table: {
+      market: {
+        ratio: 22,
+        prices: {
+          current: 353300,
+          forecast: 31,
+        },
+        rents: {
+          current: 1332,
+          forecast: 21,
+        }
+      },
+      usAverage: {
+        ratio: 20,
+        prices: {
+          current: 238900,
+          forecast: 15,
+        },
+        rents: {
+          current: 962,
+          forecast: 10,
+        }
+      }
+    }
   }
 
   // const reviewComponents = reviews.map(review => (
@@ -54,10 +78,10 @@ const Reviews = ({ reviews, user }) => {
           charts={review.charts}
           rentMin={review.targetRent.minimum}
           rentMax={review.targetRent.maximum}
-          rentMax={review.targetRent.maximum}
           returnCash={review.expectedReturns.cash}
           returnEquity={review.expectedReturns.equity}
           returnRisk={review.expectedReturns.risk}
+          table={review.table}
         />
       </div>
     </div>
